@@ -1,0 +1,8 @@
+---
+- name: prompt user for input
+  hosts: servera.lab.example.com
+  gather_facts: false
+  vars_prompt:
+    - name: var1
+      prompt: "enter value for var1: "
+...

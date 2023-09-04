@@ -1,0 +1,5 @@
+[myhosts]
+centos01 ansible_host=192.168.140.128 ansible_ssh_private_key_file=/data/vagrant/centos-01/.vagrant/machines/default/libvirt/private_key
+centos02 ansible_host=192.168.140.116 ansible_ssh_private_key_file=/data/vagrant/centos-02/.vagrant/machines/default/libvirt/private_key
+centos03 ansible_host=192.168.140.182 ansible_ssh_private_key_file=/data/vagrant/centos-03/.vagrant/machines/default/libvirt/private_key
+centos04 ansible_host=192.168.140.102 ansible_ssh_private_key_file=/data/vagrant/centos-04/.vagrant/machines/default/libvirt/private_key
