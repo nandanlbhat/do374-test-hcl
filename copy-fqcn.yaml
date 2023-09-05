@@ -1,0 +1,18 @@
+---
+- name: create a file
+  hosts: all
+
+  tasks:
+    - name: copy or create a file
+      ansible.builtin.copy:
+        dest: /tmp/test.txt
+        content: "new testing"
+
+    - name: set ACL for student user
+      ansible.posix.acl:
+        path: /tmp/test.txt
+        entity: student
+        etype: user
+        permissions: r
+        state: present
+...

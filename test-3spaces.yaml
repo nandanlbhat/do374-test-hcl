@@ -1,0 +1,9 @@
+---
+-  name: testing branches
+   hosts: all
+
+   tasks:
+      - name: show output
+        debug:
+           msg: hello world
+...
