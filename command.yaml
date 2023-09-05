@@ -1,0 +1,14 @@
+---
+- name: display hostname
+  hosts: all
+
+  tasks:
+    - name: run the hostname command
+      command: hostname
+      register: command_out
+      changed_when: false
+
+    - name: display output variable
+      debug:
+        var: command_out
+...
