@@ -1,0 +1,11 @@
+---
+ansible-navigator:
+  execution-environment:
+    image: ee-supported-rhel8:latest
+    pull:
+      policy: missing
+  logging:
+    level: critical
+  mode: stdout
+  playbook-artifact:
+    enable: False
