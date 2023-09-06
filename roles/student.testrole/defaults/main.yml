@@ -1,0 +1,3 @@
+---
+# defaults file for student.testrole
+myvar: "from role defaults"

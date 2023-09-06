@@ -1,0 +1,26 @@
+---
+- name: try out tags
+  hosts: desktop
+  gather_facts: false
+
+  tasks:
+    - name: task with tag 1 3 5 7
+      ansible.builtin.debug:
+        msg: "This task has tags 1 3 5 7"
+      tags:
+        - one
+        - three
+        - five
+        - seven
+        - never
+
+    - name: task with tag 2 4 6 8
+      ansible.builtin.debug:
+        msg: "This task has tags 2 4 6 8"
+      tags:
+        - two
+        - four
+        - six
+        - eight
+        - never
+...

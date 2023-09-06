@@ -1,0 +1,3 @@
+---
+# vars file for student.testrole
+myvar: "from roles/student.testrole/vars/main.yml"

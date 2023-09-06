@@ -1,0 +1,31 @@
+---
+- name: display id of user executing playbook
+  hosts: desktop
+  gather_facts: false
+#  become: true
+
+  roles:
+    - role: student.id
+      become: true
+
+  tasks:
+    - block:
+        - name: run id command
+          ansible.builtin.command: id
+          changed_when: false
+          register: id_out
+
+        - name: display id
+          ansible.builtin.debug:
+            var: id_out['stdout']
+      become: true
+
+    - name: run id command
+      ansible.builtin.command: id
+      changed_when: false
+      register: id_out
+
+    - name: display id
+      ansible.builtin.debug:
+        var: id_out['stdout']
+...

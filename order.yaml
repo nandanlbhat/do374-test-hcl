@@ -1,0 +1,48 @@
+---
+- name: display ordering
+  # * first pre_tasks, followed by handlers for pre_tasks
+  # * next roles and tasks, followed by handlers of roles and tasks
+  # * lastly post_tasks, followed by handlers of post_tasks
+  hosts: desktop
+  gather_facts: false
+
+  post_tasks: # deliberately out of order; check if this executes first
+    - name: this is a post_task
+      ansible.builtin.debug:
+        msg: this is a post_task
+      notify: post_task_handler
+      changed_when: true # artificially register a change to notify handler
+
+  tasks: 
+    - name: this is a task
+      ansible.builtin.debug:   
+        msg: this is a task
+      notify: task_handler
+      changed_when: true # artificially register a change to notify handler
+
+  pre_tasks: 
+    - name: this is a pre_task
+      ansible.builtin.debug:   
+        msg: this is a pre_task
+      notify: pre_task_handler
+      changed_when: true # artificially register a change to notify handler
+
+  roles:
+    - role: student.order
+
+  handlers:
+    - name: pre_task_handler
+      ansible.builtin.debug:                                              
+        msg: this is a pre_task_handler
+
+    - name: task_handler
+      ansible.builtin.debug:                                              
+        msg: this is a task_handler
+
+    - name: post_task_handler
+      ansible.builtin.debug:                                              
+        msg: this is a post_task_handler
+
+
+
+...

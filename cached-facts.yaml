@@ -1,0 +1,22 @@
+---
+- name: play 1 that collects facts
+  hosts: desktop
+  gather_facts: true # default, but shown for visibility
+
+  tasks:
+    - name: display a fact
+      ansible.builtin.debug:
+        var: ansible_default_ipv4['address']
+
+- name: play 2 that does not collect facts but has cached facts available
+  hosts: desktop
+  gather_facts: false # disable facts gathering
+
+  tasks:
+    - name: display a fact
+      ansible.builtin.debug:
+        var: ansible_fqdn
+
+
+
+...

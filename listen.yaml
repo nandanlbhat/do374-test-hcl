@@ -1,0 +1,24 @@
+---
+- name: try listen for handlers
+  hosts: desktop
+  gather_facts: false
+
+  tasks:
+    - name: notify a handler
+      ansible.builtin.debug:
+        msg: this task notified the myhandler
+      changed_when: true
+      notify: myhandler
+
+  handlers:
+    - name: myhandler1
+      ansible.builtin.debug:
+        msg: this was myhandler1
+      listen: myhandler
+
+    - name: myhandler2
+      ansible.builtin.debug:
+        msg: this was myhandler2
+      listen: myhandler
+
+...

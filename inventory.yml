@@ -1,0 +1,17 @@
+all:
+  children:
+    desktop:
+      hosts:
+        workstation.lab.example.com:
+          mygroupvar: somethingelse
+      vars:
+        mygroupvar: something
+    myhosts:
+      hosts:
+        servera.lab.example.com: {}
+        serverb.lab.example.com: {}
+        serverc.lab.example.com: {}
+        serverd.lab.example.com: {}
+        servere.lab.example.com: {}
+        serverf.lab.example.com: {}
+    ungrouped: {}

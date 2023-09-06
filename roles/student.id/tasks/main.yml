@@ -1,0 +1,11 @@
+---
+# tasks file for student.testrole
+- name: run id command 
+  ansible.builtin.command: id
+  changed_when: false
+  register: id_out
+
+- name: show id output
+  ansible.builtin.debug:
+    var: id_out['stdout']
+    

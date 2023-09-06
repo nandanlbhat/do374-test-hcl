@@ -1,0 +1,9 @@
+[myhosts]
+server[a:f].lab.example.com
+
+[desktop]
+workstation.lab.example.com myhostvar="something" myvar="from inventory/inventory-file and in workstation line"
+
+[desktop:vars]
+mygroupvar="somethingelse"
+myvar="from inventory file"

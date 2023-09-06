@@ -1,0 +1,2 @@
+---
+myvar: "from myvars.yml imported by vars_files"

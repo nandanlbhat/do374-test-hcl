@@ -1,0 +1,5 @@
+---
+# handlers for student.order role
+- name: role_handler
+  ansible.builtin.debug:
+    msg: this is a role handler
