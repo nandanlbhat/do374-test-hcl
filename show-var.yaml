@@ -6,14 +6,19 @@
   vars:
     myvar: "from playbook vars section"
 
-  vars_prompt:
-    - name: myvar
-      prompt: "enter value for myvar: "
-      private: false
+#  vars_prompt:
+#    - name: myvar
+#      prompt: "enter value for myvar: "
+#      private: false
 
   vars_files:
     - myvars.yml
 
   roles:
     - role: student.testrole
+
+  tasks:
+    - name: show another group variable
+      ansible.builtin.debug:
+        var: mygroupvarr
 ...
