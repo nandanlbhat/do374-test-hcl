@@ -1,0 +1,15 @@
+---
+- name: delegate a task to another host
+  hosts: servera.lab.example.com
+
+  tasks:
+    - name: run the hostname command
+      ansible.builtin.command: hostname
+      changed_when: false
+      register: hostname_out
+      delegate_to: workstation.lab.example.com
+
+    - name: show output of hostname command
+      ansible.builtin.debug:
+        var: hostname_out['stdout']
+...

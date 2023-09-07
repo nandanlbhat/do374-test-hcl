@@ -1,0 +1,13 @@
+---
+- name: read in template for populating expression
+  hosts: desktop
+  gather_facts: false
+
+  vars:
+    mytemplatevar: "{{ lookup('ansible.builtin.template', 'test.j2') }}"
+
+  tasks:
+    - ansible.builtin.debug:
+        var: mytemplatevar
+
+...

@@ -1,0 +1,14 @@
+---
+- name: get data from external file
+  hosts: desktop
+  gather_facts: false
+
+  vars:
+    sample_text: "{{ query('ansible.builtin.file', 'test.txt', 'test2.txt') }}"
+
+  tasks:
+    - name: display obtained data
+      ansible.builtin.debug:
+        var: sample_text
+
+...

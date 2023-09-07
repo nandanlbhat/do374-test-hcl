@@ -1,0 +1,31 @@
+---
+- name: try expressions and filters
+  hosts: desktop
+  gather_facts: false
+
+  vars:
+    somevar: "some value"
+    mylist:
+      - one
+      - two
+      - three
+
+    mylist2:
+      - 2:
+        - 4:
+          - 6
+          - 8
+      - 10: {}
+
+        
+  
+  tasks:
+    - name: show length of a list variable
+      ansible.builtin.debug:
+        #msg: "Length of  mylist is {{ mylist | length}} "
+        #msg: "First in  mylist is {{ mylist | first}} "
+        #msg: "Reverse order of mylist is {{ mylist | reverse}} "
+        #var: mylist2 | flatten
+        #msg: "Value of some var in upper case is {{ somevar | upper }}"
+        msg: "Value of some var in apitalized case is {{ somevar | capitalize }}"
+...

@@ -1,0 +1,29 @@
+---
+- name: try forks and serial
+  hosts: all
+  gather_facts: false
+  order: sorted
+  max_fail_percentage: 50
+  serial:
+    - 1
+    - 2
+    - 100% 
+  
+  tasks:
+    - name: sleep 2 seconds
+      command: sleep 2
+      changed_when: false
+
+    - name: fail conditionally
+      fail:
+        msg: this task fails for host servera
+      when: inventory_hostname == "serverb.lab.example.com"
+
+    - name: sleep another 2 seconds
+      command: sleep 2
+      changed_when: false
+
+    - name: sleep yet another 2 seconds
+      command: sleep 2
+      changed_when: false
+...

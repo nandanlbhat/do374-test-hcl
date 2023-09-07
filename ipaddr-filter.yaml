@@ -1,0 +1,28 @@
+---
+- name: test correctness of network address using ipaddr filter
+  hosts: desktop
+  gather_facts: false
+
+  vars:
+    #myip: '192.168.0.1'
+    myip: '192.168.0.1000'
+    test_myip: "{{ myip | ansible.utils.ipaddr }}"
+    test_list: 
+      - '192.24.2.1'
+      - 'host.fqdn'
+      - '::1'
+      - '192.168.32.0/24'
+      - 'fe80::100/10'
+      - True 
+      - '' 
+      - '42540766412265424405338506004571095040/64'
+    addr_list: "{{ test_list | ansible.utils.ipaddr('address') }}"
+    host_list: "{{ test_list | ansible.utils.ipaddr('host') }}"
+
+  tasks:
+    - name: output based on ipaddr filtering
+      ansible.builtin.debug:
+        #msg: "filter output for {{ myip }} is {{ test_myip }}"
+        #msg: valid addresses are {{ addr_list }}
+        msg: valid hosts are {{ host_list }}
+...
