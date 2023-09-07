@@ -20,5 +20,5 @@
   tasks:
     - name: show another group variable
       ansible.builtin.debug:
-        var: mygroupvarr
+        var: mygroupvar
 ...
