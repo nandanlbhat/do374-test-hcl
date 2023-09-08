@@ -1,0 +1,8 @@
+---
+- name: try a local collection
+  hosts: desktop
+  gather_facts: false
+
+  roles:
+    - role: student.personal.greeting
+...

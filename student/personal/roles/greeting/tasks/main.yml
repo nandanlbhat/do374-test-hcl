@@ -1,0 +1,5 @@
+---
+# tasks file for greeting
+- name: display a greeting
+  ansible.builtin.debug:
+    msg: hello DO374 world
